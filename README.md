@@ -49,6 +49,8 @@ A beautiful 6-page PowerPoint-style presentation built with Next.js, TypeScript,
 
    For local development: [http://localhost:3000](http://localhost:3000)
 
+   🚀 **Live Demo**: https://jennyyu009.github.io/FinSENTLLM-Paper/
+
 ### Build for Production
 
 ```bash
