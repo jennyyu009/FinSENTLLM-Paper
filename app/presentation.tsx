@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const slides = [
   {
@@ -642,7 +641,7 @@ export default function Presentation() {
                 <div className="col-span-6 flex items-center justify-center h-full">
                   {slide.image && (
                     <div className="bg-white bg-opacity-20 rounded-xl p-6 backdrop-blur-sm shadow-xl">
-                      <Image
+                      <img
                         src={slide.image}
                         alt="Process Flowchart"
                         width={700}
@@ -724,7 +723,7 @@ export default function Presentation() {
                   <div className="col-span-6 flex justify-center">
                     {slide.image && (
                       <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <Image
+                        <img
                           src={slide.image}
                           alt="Signals Table"
                           width={500}
