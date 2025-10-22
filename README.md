@@ -1,6 +1,8 @@
-# FinSentLLM Paper review and summary
+# FinSentLLM Paper Review and Summary
 
 A beautiful 6-page PowerPoint-style presentation built with Next.js, TypeScript, and Tailwind CSS featuring a stunning blue gradient theme.
+
+🌐 **Live Demo**: https://jennyyu009.github.io/FinSENTLLM-Paper/
 
 ## 🎯 Features
 
@@ -48,8 +50,6 @@ A beautiful 6-page PowerPoint-style presentation built with Next.js, TypeScript,
    Navigate to [FinSentLLM Paper review and summary](https://jennyyu009.github.io/FinSENTLLM-Paper/) to view the live presentation
 
    For local development: [http://localhost:3000](http://localhost:3000)
-
-   🚀 **Live Demo**: https://jennyyu009.github.io/FinSENTLLM-Paper/
 
 ### Build for Production
 
