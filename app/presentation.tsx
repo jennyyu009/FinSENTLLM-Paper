@@ -181,6 +181,38 @@ const slides = [
 
 export default function Presentation() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [viewportSize, setViewportSize] = useState({
+    width: 1920,
+    height: 1080,
+  });
+
+  useEffect(() => {
+    // Handle fullscreen detection
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    // Handle viewport size changes
+    const handleResize = () => {
+      setViewportSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Initial setup
+    handleResize();
+    handleFullscreenChange();
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -1142,28 +1174,70 @@ export default function Presentation() {
     }
   };
 
+  // Calculate dynamic scale based on viewport and fullscreen state
+  const getScale = () => {
+    const { width, height } = viewportSize;
+    let baseScale = 1;
+
+    if (isFullscreen) {
+      // In fullscreen, use larger scaling
+      if (width >= 3840) baseScale = 1.2; // 4K screens
+      else if (width >= 2560) baseScale = 1.1; // QHD screens
+      else if (width >= 1920) baseScale = 1.0; // Full HD screens
+      else if (width >= 1366) baseScale = 0.9; // HD screens
+      else if (width >= 1024) baseScale = 0.8; // Tablet landscape
+      else baseScale = 0.7; // Mobile/small screens
+    } else {
+      // Normal window mode
+      if (width >= 2560) baseScale = 0.95; // Large screens
+      else if (width >= 1920) baseScale = 0.9; // Full HD screens
+      else if (width >= 1366) baseScale = 0.8; // HD screens
+      else if (width >= 1024) baseScale = 0.75; // Tablet landscape
+      else if (width >= 768) baseScale = 0.7; // Tablet portrait
+      else baseScale = 0.6; // Mobile
+    }
+
+    return baseScale;
+  };
+
+  const dynamicScale = getScale();
+
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      <div className="w-full h-full scale-[0.85] md:scale-90 lg:scale-95 xl:scale-100 origin-center">
-        {renderSlide(slides[currentSlide])}
+    <div
+      className={`relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-100 flex items-center justify-center ${
+        isFullscreen ? "fullscreen-mode" : ""
+      }`}
+    >
+      <div className="w-full h-full flex items-center justify-center p-1 sm:p-2 md:p-4 lg:p-6">
+        <div
+          className="w-full max-w-[98vw] origin-center transition-transform duration-500 ease-in-out flex items-center justify-center"
+          style={{
+            transform: `scale(${dynamicScale})`,
+            maxWidth: isFullscreen ? "95vw" : "90vw",
+          }}
+        >
+          <div className="w-full max-w-8xl">
+            {renderSlide(slides[currentSlide])}
+          </div>
+        </div>
       </div>
 
       {/* Navigation Controls */}
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 bg-black bg-opacity-70 rounded-lg px-4 py-2">
+      <div className="fixed bottom-2 sm:bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 sm:space-x-3 bg-black bg-opacity-80 rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 z-50 backdrop-blur-sm">
         <button
           onClick={prevSlide}
-          className="text-white hover:text-blue-accent transition-colors text-lg font-bold"
+          className="text-white hover:text-blue-accent transition-colors text-base sm:text-lg font-bold"
           aria-label="Previous slide"
         >
           ←
         </button>
 
-        <div className="flex space-x-2">
+        <div className="flex space-x-1.5 sm:space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
+              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
                 index === currentSlide ? "bg-blue-accent" : "bg-gray-400"
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -1173,7 +1247,7 @@ export default function Presentation() {
 
         <button
           onClick={nextSlide}
-          className="text-white hover:text-blue-accent transition-colors text-lg font-bold"
+          className="text-white hover:text-blue-accent transition-colors text-base sm:text-lg font-bold"
           aria-label="Next slide"
         >
           →
@@ -1181,12 +1255,12 @@ export default function Presentation() {
       </div>
 
       {/* Slide Counter */}
-      <div className="fixed top-8 right-8 bg-black bg-opacity-70 text-white px-4 py-2 rounded-lg text-lg font-bold">
+      <div className="fixed top-2 sm:top-4 md:top-6 right-2 sm:right-4 md:right-6 bg-black bg-opacity-80 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-sm sm:text-base font-bold z-50 backdrop-blur-sm">
         {currentSlide + 1} / {slides.length}
       </div>
 
       {/* Keyboard Instructions */}
-      <div className="fixed top-8 left-8 bg-black bg-opacity-70 text-white px-4 py-2 rounded-lg text-base">
+      <div className="fixed top-2 sm:top-4 md:top-6 left-2 sm:left-4 md:left-6 bg-black bg-opacity-80 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm z-50 backdrop-blur-sm hidden sm:block">
         Use ← → keys or space to navigate
       </div>
     </div>

@@ -10,10 +10,14 @@
 
 @layer components {
   .slide {
-    @apply min-h-screen flex flex-col justify-center items-center p-2 md:p-4 lg:p-6 text-white relative overflow-visible;
+    @apply flex flex-col justify-center items-center p-2 sm:p-4 md:p-6 lg:p-8 xl:p-10 text-white relative overflow-visible;
     background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 25%, #81d4fa 50%, #4fc3f7 75%, #29b6f6 100%);
-    height: 100vh;
-    max-height: 100vh;
+    min-height: 85vh;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .slide::before {
@@ -30,13 +34,18 @@
   }
   
   .slide-content {
-    @apply max-w-6xl w-full mx-auto relative z-10 px-3 md:px-5 lg:px-6;
-    min-height: calc(100vh - 3rem);
+    @apply w-full mx-auto relative z-10 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10;
+    max-width: 95vw;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
   }
   
   .slide-title {
-    @apply text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 text-center;
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-center;
   }
   
   .slide-subtitle {
@@ -67,6 +76,78 @@
   .viewport-fit {
     min-height: auto;
     overflow: visible;
+  }
+
+  /* Fullscreen and viewport optimizations */
+  @media (max-width: 640px) {
+    .slide {
+      padding: 0.5rem;
+      min-height: 80vh;
+    }
+    
+    .slide-content {
+      padding: 0.75rem;
+      max-width: 98vw;
+    }
+    
+    .slide-title {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .slide {
+      padding: 1rem;
+      min-height: 85vh;
+    }
+    
+    .slide-content {
+      padding: 1.25rem;
+      max-width: 95vw;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .slide-content {
+      max-width: 90vw;
+    }
+    
+    .slide {
+      min-height: 90vh;
+    }
+  }
+
+  /* Fullscreen mode optimization */
+  .fullscreen-mode {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #bae6fd 40%, #7dd3fc 60%, #38bdf8 80%, #0ea5e9 100%);
+  }
+  
+  .fullscreen-mode .slide {
+    min-height: 98vh;
+    padding: 0.5rem 1rem;
+  }
+  
+  .fullscreen-mode .slide-content {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+
+  @media (display-mode: fullscreen) {
+    .slide {
+      min-height: 95vh;
+    }
+    
+    .slide-content {
+      max-width: 92vw;
+    }
+  }
+
+  /* High resolution screens */
+  @media (min-width: 1920px) {
+    .slide-content {
+      max-width: 85vw;
+    }
   }
 
   @keyframes fadeIn {
