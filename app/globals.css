@@ -10,9 +10,9 @@
 
 @layer components {
   .slide {
-    @apply flex flex-col justify-center items-center p-2 sm:p-4 md:p-6 lg:p-8 xl:p-10 text-white relative overflow-visible;
+    @apply flex flex-col justify-center items-center p-3 sm:p-4 md:p-6 lg:p-8 text-white relative overflow-visible;
     background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 25%, #81d4fa 50%, #4fc3f7 75%, #29b6f6 100%);
-    min-height: 85vh;
+    min-height: 95vh;
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -34,8 +34,8 @@
   }
   
   .slide-content {
-    @apply w-full mx-auto relative z-10 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10;
-    max-width: 95vw;
+    @apply w-full mx-auto relative z-10 px-2 sm:px-4 md:px-6 lg:px-8;
+    max-width: 98vw;
     overflow: visible;
     display: flex;
     flex-direction: column;
@@ -119,10 +119,6 @@
   }
 
   /* Fullscreen mode optimization */
-  .fullscreen-mode {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #bae6fd 40%, #7dd3fc 60%, #38bdf8 80%, #0ea5e9 100%);
-  }
-  
   .fullscreen-mode .slide {
     min-height: 98vh;
     padding: 0.5rem 1rem;

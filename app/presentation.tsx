@@ -700,13 +700,13 @@ export default function Presentation() {
                 {/* Right side - Flowchart */}
                 <div className="col-span-6 flex items-center justify-center h-full">
                   {slide.image && (
-                    <div className="bg-white bg-opacity-20 rounded-xl p-6 backdrop-blur-sm shadow-xl">
+                    <div className="bg-white bg-opacity-20 rounded-xl p-4 sm:p-6 backdrop-blur-sm shadow-xl w-full max-w-5xl">
                       <img
                         src={slide.image}
                         alt="Process Flowchart"
                         width={700}
                         height={550}
-                        className="w-full h-auto rounded-lg shadow-lg object-contain"
+                        className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[400px] sm:min-h-[500px]"
                         onError={(e) => {
                           console.error("Failed to load image:", slide.image);
                           e.currentTarget.style.border = "2px solid red";
@@ -789,13 +789,13 @@ export default function Presentation() {
                   {/* Center - Table Image */}
                   <div className="col-span-6 flex justify-center">
                     {slide.image && (
-                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-xl hover:shadow-2xl transition-all duration-300">
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-4xl">
                         <img
                           src={slide.image}
                           alt="Signals Table"
                           width={500}
                           height={380}
-                          className="w-full h-auto rounded-lg shadow-lg object-contain"
+                          className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[300px] sm:min-h-[400px]"
                           onError={(e) => {
                             console.error("Failed to load image:", slide.image);
                             e.currentTarget.style.border = "2px solid red";
@@ -1180,21 +1180,23 @@ export default function Presentation() {
     let baseScale = 1;
 
     if (isFullscreen) {
-      // In fullscreen, use larger scaling
-      if (width >= 3840) baseScale = 1.2; // 4K screens
-      else if (width >= 2560) baseScale = 1.1; // QHD screens
-      else if (width >= 1920) baseScale = 1.0; // Full HD screens
-      else if (width >= 1366) baseScale = 0.9; // HD screens
-      else if (width >= 1024) baseScale = 0.8; // Tablet landscape
-      else baseScale = 0.7; // Mobile/small screens
+      // In fullscreen, keep content large and readable
+      if (width >= 3840) baseScale = 1.3; // 4K screens - even larger
+      else if (width >= 2560) baseScale = 1.2; // QHD screens - larger
+      else if (width >= 1920)
+        baseScale = 1.1; // Full HD screens - slightly larger
+      else if (width >= 1366) baseScale = 1.0; // HD screens - normal size
+      else if (width >= 1024)
+        baseScale = 0.95; // Tablet landscape - slightly smaller
+      else baseScale = 0.9; // Mobile/small screens - readable
     } else {
-      // Normal window mode
-      if (width >= 2560) baseScale = 0.95; // Large screens
-      else if (width >= 1920) baseScale = 0.9; // Full HD screens
-      else if (width >= 1366) baseScale = 0.8; // HD screens
-      else if (width >= 1024) baseScale = 0.75; // Tablet landscape
-      else if (width >= 768) baseScale = 0.7; // Tablet portrait
-      else baseScale = 0.6; // Mobile
+      // Normal window mode - keep content readable
+      if (width >= 2560) baseScale = 1.1; // Large screens - larger
+      else if (width >= 1920) baseScale = 1.0; // Full HD screens - normal
+      else if (width >= 1366) baseScale = 0.95; // HD screens - slightly smaller
+      else if (width >= 1024) baseScale = 0.9; // Tablet landscape - readable
+      else if (width >= 768) baseScale = 0.85; // Tablet portrait - readable
+      else baseScale = 0.8; // Mobile - still readable
     }
 
     return baseScale;
@@ -1204,19 +1206,19 @@ export default function Presentation() {
 
   return (
     <div
-      className={`relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-100 flex items-center justify-center ${
+      className={`relative w-full min-h-screen overflow-hidden flex items-center justify-center ${
         isFullscreen ? "fullscreen-mode" : ""
       }`}
     >
-      <div className="w-full h-full flex items-center justify-center p-1 sm:p-2 md:p-4 lg:p-6">
+      <div className="w-full h-full flex items-center justify-center">
         <div
-          className="w-full max-w-[98vw] origin-center transition-transform duration-500 ease-in-out flex items-center justify-center"
+          className="w-full origin-center transition-transform duration-300 ease-in-out flex items-center justify-center"
           style={{
             transform: `scale(${dynamicScale})`,
-            maxWidth: isFullscreen ? "95vw" : "90vw",
+            maxWidth: isFullscreen ? "98vw" : "95vw",
           }}
         >
-          <div className="w-full max-w-8xl">
+          <div className="w-full max-w-7xl">
             {renderSlide(slides[currentSlide])}
           </div>
         </div>
