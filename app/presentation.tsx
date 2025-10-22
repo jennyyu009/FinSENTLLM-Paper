@@ -621,7 +621,7 @@ export default function Presentation() {
 
       case "process":
         return (
-          <div className="slide content-slide relative overflow-hidden">
+          <div className="slide content-slide relative">
             {/* Background design elements */}
             <div className="absolute inset-0 overflow-hidden">
               <div
@@ -757,7 +757,7 @@ export default function Presentation() {
                 </h1>
               </div>
 
-              <div className="w-full overflow-visible px-2">
+              <div className="w-full px-2">
                 {/* Main content layout: simple responsive grid */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start max-w-6xl w-full mx-auto">
                   {/* Left side - First 3 signal definitions */}
@@ -864,9 +864,9 @@ export default function Presentation() {
               style={{ animationDelay: "2s" }}
             ></div>
 
-            <div className="slide-content relative z-10 pb-16">
-              <div className="text-center mb-4">
-                <div className="flex items-center justify-center gap-4 mb-3">
+            <div className="slide-content relative z-10 pt-4 pb-16">
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-4 mb-4">
                   <div className="bg-gradient-to-r from-green-500 to-blue-500 p-3 rounded-xl shadow-lg">
                     <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                       <span className="text-green-600 font-bold text-lg">
@@ -884,13 +884,13 @@ export default function Presentation() {
               <div className="grid grid-cols-1 gap-4">
                 {/* Top section - Methodology in horizontal layout */}
                 <div className="w-full">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 border border-blue-200/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="grid grid-cols-2 gap-2">
                       {Array.isArray(slide.content) &&
                         slide.content.map((item, index) => (
                           <div key={index} className="flex items-center">
                             <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mr-2 flex-shrink-0"></div>
-                            <div className="bg-gradient-to-r from-green-100/80 to-blue-100/80 rounded-lg p-2 flex-grow border border-green-200/50 hover:border-blue-300/50 transition-all duration-300">
+                            <div className="bg-gradient-to-r from-green-100/80 to-blue-100/80 rounded-lg p-2 flex-grow hover:bg-gradient-to-r hover:from-green-200/80 hover:to-blue-200/80 transition-all duration-300">
                               <p
                                 className="text-gray-800 text-xs leading-relaxed font-medium"
                                 dangerouslySetInnerHTML={{ __html: item }}
@@ -903,7 +903,7 @@ export default function Presentation() {
                 </div>
                 {/* Bottom section - Model Comparison Table */}
                 <div className="w-full">
-                  <div className="bg-white/85 backdrop-blur-sm rounded-xl p-4 overflow-hidden shadow-xl border border-green-200/50">
+                  <div className="bg-white/85 backdrop-blur-sm rounded-xl p-4 overflow-hidden shadow-xl">
                     <h3 className="text-gray-800 font-bold text-base md:text-lg mb-4 text-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                       Model Performance Comparison
                     </h3>
@@ -1066,7 +1066,7 @@ export default function Presentation() {
                           return (
                             <div
                               key={index}
-                              className="bg-white/80 backdrop-blur-sm border border-gray-200/50 hover:border-orange-300/50 rounded-lg p-3 shadow-lg hover:shadow-xl transition-all duration-300"
+                              className="bg-white/80 backdrop-blur-sm hover:bg-white/90 rounded-lg p-3 shadow-lg hover:shadow-xl transition-all duration-300"
                             >
                               <div className="flex items-start">
                                 <div className="w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-gradient-to-r from-blue-400 to-cyan-400">
@@ -1088,7 +1088,7 @@ export default function Presentation() {
                   {/* Right side - Table and parameter explanations */}
                   <div className="col-span-6">
                     {/* DCC-GARCH Results Table */}
-                    <div className="bg-white/85 backdrop-blur-sm rounded-xl p-3 overflow-hidden shadow-xl border border-orange-200/50 mb-3">
+                    <div className="bg-white/85 backdrop-blur-sm rounded-xl p-3 overflow-hidden shadow-xl mb-3">
                       <h3 className="text-gray-800 font-bold text-sm mb-3 text-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                         DCC-GARCH Results
                       </h3>
@@ -1147,7 +1147,7 @@ export default function Presentation() {
                           return (
                             <div
                               key={index + 4}
-                              className="bg-gradient-to-r from-orange-100/90 to-red-100/90 border border-orange-300/50 hover:border-red-300/50 rounded-lg p-3 shadow-lg hover:shadow-xl transition-all duration-300"
+                              className="bg-gradient-to-r from-orange-100/90 to-red-100/90 hover:border-red-300/50 rounded-lg p-3 shadow-lg hover:shadow-xl transition-all duration-300"
                             >
                               <div className="flex items-start">
                                 <div className="w-5 h-5 rounded-full flex items-center justify-center mr-2 mt-0.5 flex-shrink-0 bg-gradient-to-r from-orange-400 to-red-400">
