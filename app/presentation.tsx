@@ -11,6 +11,7 @@ const slides = [
     subtitle: "Jenny Yu",
     content:
       "Training-free Integration Framework for Financial Sentiment Analysis",
+    paperLink: "https://arxiv.org/abs/2509.12638",
   },
   {
     id: 2,
@@ -458,6 +459,33 @@ export default function Presentation() {
                           </span>
                         </div>
                       </div>
+
+                      {/* Paper link */}
+                      {slide.paperLink && (
+                        <div className="mt-8 pt-6 border-t border-blue-200/30">
+                          <div className="flex items-center">
+                            <div
+                              className="w-10 h-10 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mr-4 animate-pulse"
+                              style={{ animationDuration: "2s" }}
+                            >
+                              <div className="text-lg">📄</div>
+                            </div>
+                            <div>
+                              <p className="text-blue-light text-sm font-medium mb-1">
+                                Research Paper
+                              </p>
+                              <a
+                                href={slide.paperLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white text-lg font-semibold hover:text-blue-200 transition-colors duration-300 underline decoration-blue-300 hover:decoration-blue-200"
+                              >
+                                View on arXiv →
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
