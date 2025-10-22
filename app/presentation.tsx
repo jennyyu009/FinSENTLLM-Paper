@@ -33,7 +33,7 @@ const slides = [
       "Step 3: <strong>Structured Financial Semantics</strong> - Integrate features capturing <strong>uncertainty</strong>, <strong>divergence</strong>, and <strong>model agreement</strong>",
       "Step 4: <strong>Meta-Classifier Training</strong> - Use <strong>XGBoost</strong> or <strong>Logistic Regression</strong> to learn final sentiment decisions",
     ],
-    image: "/FinSENTLLM-Paper/images/flowchart.png",
+    image: "/images/flowchart.png",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const slides = [
       "<strong>Expert Disagreement</strong>: Measures how different <strong>FinBERT</strong> and <strong>RoBERTa</strong> predictions are (<strong>1 = strong agreement</strong>, <strong>0.5 = partial disagreement</strong>, <strong>0 = opposite sentiments</strong>)",
       "<strong>Kullback–Leibler Divergence</strong>: Evaluates how much <strong>FinBERT's distribution</strong> diverges from <strong>RoBERTa's</strong>. <strong>Larger values = RoBERTa poorly captures FinBERT's sentiment perspective</strong>",
     ],
-    image: "/FinSENTLLM-Paper/images/table.png",
+    image: "/images/table.png",
   },
   {
     id: 5,
@@ -647,6 +647,13 @@ export default function Presentation() {
                         width={700}
                         height={550}
                         className="w-full h-auto rounded-lg shadow-lg object-contain"
+                        onError={(e) => {
+                          console.error("Failed to load image:", slide.image);
+                          e.currentTarget.style.border = "2px solid red";
+                        }}
+                        onLoad={() =>
+                          console.log("Image loaded successfully:", slide.image)
+                        }
                       />
                     </div>
                   )}
@@ -729,6 +736,11 @@ export default function Presentation() {
                           width={500}
                           height={380}
                           className="w-full h-auto rounded-lg shadow-lg object-contain"
+                          onError={(e) => {
+                            console.error('Failed to load image:', slide.image);
+                            e.currentTarget.style.border = '2px solid red';
+                          }}
+                          onLoad={() => console.log('Image loaded successfully:', slide.image)}
                         />
                       </div>
                     )}
