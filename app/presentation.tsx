@@ -700,13 +700,13 @@ export default function Presentation() {
                 {/* Right side - Flowchart */}
                 <div className="col-span-6 flex items-center justify-center h-full">
                   {slide.image && (
-                    <div className="bg-white bg-opacity-20 rounded-xl p-4 sm:p-6 backdrop-blur-sm shadow-xl w-full max-w-5xl">
+                    <div className="bg-white bg-opacity-20 rounded-xl p-4 sm:p-6 backdrop-blur-sm shadow-xl w-full max-w-6xl">
                       <img
                         src={slide.image}
                         alt="Process Flowchart"
                         width={700}
                         height={550}
-                        className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[400px] sm:min-h-[500px]"
+                        className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[500px] sm:min-h-[600px] md:min-h-[700px]"
                         onError={(e) => {
                           console.error("Failed to load image:", slide.image);
                           e.currentTarget.style.border = "2px solid red";
@@ -789,13 +789,13 @@ export default function Presentation() {
                   {/* Center - Table Image */}
                   <div className="col-span-6 flex justify-center">
                     {slide.image && (
-                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-4xl">
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-5xl">
                         <img
                           src={slide.image}
                           alt="Signals Table"
                           width={500}
                           height={380}
-                          className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[300px] sm:min-h-[400px]"
+                          className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[400px] sm:min-h-[500px] md:min-h-[600px]"
                           onError={(e) => {
                             console.error("Failed to load image:", slide.image);
                             e.currentTarget.style.border = "2px solid red";
@@ -1180,23 +1180,21 @@ export default function Presentation() {
     let baseScale = 1;
 
     if (isFullscreen) {
-      // In fullscreen, keep content large and readable
-      if (width >= 3840) baseScale = 1.3; // 4K screens - even larger
-      else if (width >= 2560) baseScale = 1.2; // QHD screens - larger
-      else if (width >= 1920)
-        baseScale = 1.1; // Full HD screens - slightly larger
-      else if (width >= 1366) baseScale = 1.0; // HD screens - normal size
-      else if (width >= 1024)
-        baseScale = 0.95; // Tablet landscape - slightly smaller
-      else baseScale = 0.9; // Mobile/small screens - readable
+      // In fullscreen, maximize content size for clarity
+      if (width >= 3840) baseScale = 1.6; // 4K screens - much larger
+      else if (width >= 2560) baseScale = 1.5; // QHD screens - much larger
+      else if (width >= 1920) baseScale = 1.4; // Full HD screens - larger
+      else if (width >= 1366) baseScale = 1.3; // HD screens - larger
+      else if (width >= 1024) baseScale = 1.2; // Tablet landscape - larger
+      else baseScale = 1.1; // Mobile/small screens - larger
     } else {
-      // Normal window mode - keep content readable
-      if (width >= 2560) baseScale = 1.1; // Large screens - larger
-      else if (width >= 1920) baseScale = 1.0; // Full HD screens - normal
-      else if (width >= 1366) baseScale = 0.95; // HD screens - slightly smaller
-      else if (width >= 1024) baseScale = 0.9; // Tablet landscape - readable
-      else if (width >= 768) baseScale = 0.85; // Tablet portrait - readable
-      else baseScale = 0.8; // Mobile - still readable
+      // Normal window mode - increase size significantly
+      if (width >= 2560) baseScale = 1.4; // Large screens - much larger
+      else if (width >= 1920) baseScale = 1.3; // Full HD screens - larger
+      else if (width >= 1366) baseScale = 1.2; // HD screens - larger
+      else if (width >= 1024) baseScale = 1.1; // Tablet landscape - larger
+      else if (width >= 768) baseScale = 1.0; // Tablet portrait - normal
+      else baseScale = 0.95; // Mobile - slightly smaller but readable
     }
 
     return baseScale;
