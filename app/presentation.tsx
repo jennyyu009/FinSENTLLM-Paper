@@ -638,10 +638,10 @@ export default function Presentation() {
               <h1 className="slide-title text-center mb-6 text-gray-800">
                 {slide.title}
               </h1>
-              <div className="grid grid-cols-12 gap-4 items-start viewport-fit">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start viewport-fit">
                 {/* Left side - Timeline */}
-                <div className="col-span-4">
-                  <div className="relative mx-auto max-w-sm">
+                <div className="md:col-span-4 col-span-1 mb-6 md:mb-0">
+                  <div className="relative mx-auto max-w-full">
                     {/* Enhanced vertical timeline line */}
                     <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-cyan-400 to-blue-500 rounded-full shadow-sm"></div>
 
@@ -698,16 +698,16 @@ export default function Presentation() {
                   </div>
                 </div>
                 {/* Right side - Flowchart */}
-                <div className="col-span-8 flex items-center justify-center h-full">
+                <div className="md:col-span-8 col-span-1 flex items-center justify-center h-full">
                   {slide.image && (
-                    <div className="bg-white bg-opacity-20 rounded-xl p-2 sm:p-4 backdrop-blur-sm shadow-xl w-full">
+                    <div className="bg-white bg-opacity-20 rounded-xl p-3 sm:p-4 backdrop-blur-sm shadow-xl w-full max-w-4xl">
                       <img
                         src={slide.image}
                         alt="Process Flowchart"
-                        width={900}
-                        height={700}
-                        className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[600px] sm:min-h-[700px] md:min-h-[800px]"
-                        style={{ maxHeight: "85vh" }}
+                        width={800}
+                        height={600}
+                        className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[400px] sm:min-h-[500px] md:min-h-[600px]"
+                        style={{ maxHeight: "70vh" }}
                         onError={(e) => {
                           console.error("Failed to load image:", slide.image);
                           e.currentTarget.style.border = "2px solid red";
@@ -758,21 +758,21 @@ export default function Presentation() {
               </div>
 
               <div className="w-full overflow-visible px-2">
-                {/* Main content layout: responsive grid with larger center image */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4 items-start max-w-7xl w-full mx-auto">
+                {/* Main content layout: simple responsive grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start max-w-6xl w-full mx-auto">
                   {/* Left side - First 3 signal definitions */}
-                  <div className="lg:col-span-2 order-1 lg:order-1">
-                    <div className="space-y-2">
+                  <div className="md:col-span-3 col-span-1 mb-4 md:mb-0">
+                    <div className="space-y-3">
                       {Array.isArray(slide.content) &&
                         slide.content.slice(0, 3).map((item, index) => {
                           const [signalName, description] = item.split(": ");
                           return (
                             <div
                               key={index}
-                              className="bg-white/80 backdrop-blur-sm rounded-lg p-2 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
+                              className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
                             >
                               <h3
-                                className="text-xs sm:text-sm font-bold text-gray-800 mb-1"
+                                className="text-sm font-bold text-gray-800 mb-2"
                                 dangerouslySetInnerHTML={{ __html: signalName }}
                               />
                               <p
@@ -788,16 +788,16 @@ export default function Presentation() {
                   </div>
 
                   {/* Center - Table Image */}
-                  <div className="lg:col-span-8 order-3 lg:order-2 flex justify-center">
+                  <div className="md:col-span-6 col-span-1 flex justify-center mb-4 md:mb-0">
                     {slide.image && (
-                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-xl hover:shadow-2xl transition-all duration-300 w-full">
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-3xl">
                         <img
                           src={slide.image}
                           alt="Signals Table"
-                          width={700}
-                          height={550}
-                          className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[750px]"
-                          style={{ maxHeight: "80vh" }}
+                          width={600}
+                          height={450}
+                          className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[300px] sm:min-h-[400px] md:min-h-[500px]"
+                          style={{ maxHeight: "60vh" }}
                           onError={(e) => {
                             console.error("Failed to load image:", slide.image);
                             e.currentTarget.style.border = "2px solid red";
@@ -814,18 +814,18 @@ export default function Presentation() {
                   </div>
 
                   {/* Right side - Last 3 signal definitions */}
-                  <div className="lg:col-span-2 order-2 lg:order-3">
-                    <div className="space-y-2">
+                  <div className="md:col-span-3 col-span-1">
+                    <div className="space-y-3">
                       {Array.isArray(slide.content) &&
                         slide.content.slice(3, 6).map((item, index) => {
                           const [signalName, description] = item.split(": ");
                           return (
                             <div
                               key={index + 3}
-                              className="bg-white/80 backdrop-blur-sm rounded-lg p-2 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
+                              className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
                             >
                               <h3
-                                className="text-xs sm:text-sm font-bold text-gray-800 mb-1"
+                                className="text-sm font-bold text-gray-800 mb-2"
                                 dangerouslySetInnerHTML={{ __html: signalName }}
                               />
                               <p
