@@ -539,7 +539,7 @@ export default function Presentation() {
               ></div>
             </div>
 
-            <div className="slide-content relative z-10 pt-8 pb-20">
+            <div className="slide-content relative z-10 pt-16 pb-20">
               <div className="grid grid-cols-12 gap-6 items-start">
                 {/* Left side - Title and content */}
                 <div className="col-span-7">
