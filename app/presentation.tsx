@@ -864,24 +864,24 @@ export default function Presentation() {
               style={{ animationDelay: "2s" }}
             ></div>
 
-            <div className="slide-content relative z-10 pt-4 pb-16">
-              <div className="text-center mb-6">
-                <div className="flex items-center justify-center gap-4 mb-4">
-                  <div className="bg-gradient-to-r from-green-500 to-blue-500 p-3 rounded-xl shadow-lg">
-                    <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                      <span className="text-green-600 font-bold text-lg">
+            <div className="slide-content relative z-10 pt-2 sm:pt-4 pb-8 sm:pb-16">
+              <div className="text-center mb-3 sm:mb-6">
+                <div className="flex items-center justify-center gap-2 sm:gap-4 mb-2 sm:mb-4">
+                  <div className="bg-gradient-to-r from-green-500 to-blue-500 p-2 sm:p-3 rounded-xl shadow-lg">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-lg flex items-center justify-center">
+                      <span className="text-green-600 font-bold text-sm sm:text-lg">
                         📊
                       </span>
                     </div>
                   </div>
-                  <h1 className="slide-title bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                  <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                     {slide.title}
                   </h1>
                 </div>
-                <div className="w-20 h-1 bg-gradient-to-r from-green-400 to-blue-400 mx-auto rounded-full"></div>
+                <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-green-400 to-blue-400 mx-auto rounded-full"></div>
               </div>
 
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-2 sm:gap-4">
                 {/* Top section - Methodology in horizontal layout */}
                 <div className="w-full">
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -903,47 +903,47 @@ export default function Presentation() {
                 </div>
                 {/* Bottom section - Model Comparison Table */}
                 <div className="w-full">
-                  <div className="bg-white/85 backdrop-blur-sm rounded-xl p-4 overflow-hidden shadow-xl">
-                    <h3 className="text-gray-800 font-bold text-base md:text-lg mb-4 text-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                  <div className="bg-white/85 backdrop-blur-sm rounded-xl p-2 sm:p-4 overflow-hidden shadow-xl">
+                    <h3 className="text-gray-800 font-bold text-sm sm:text-base md:text-lg mb-2 sm:mb-4 text-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                       Model Performance Comparison
                     </h3>
                     <div className="overflow-hidden rounded-lg shadow-lg">
                       <table className="w-full text-xs border-collapse">
                         <thead>
                           <tr className="bg-gradient-to-r from-green-500 to-blue-500">
-                            <th className="px-3 py-2 text-left text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-3 py-1 sm:py-2 text-left text-white font-semibold text-xs border-r border-white/20">
                               Models
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs border-r border-white/20">
                               50%
                               <br />
                               Acc
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs border-r border-white/20">
                               F1
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs border-r border-white/20">
                               66%
                               <br />
                               Acc
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs border-r border-white/20">
                               F1
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs border-r border-white/20">
                               75%
                               <br />
                               Acc
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs border-r border-white/20">
                               F1
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs border-r border-white/20">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs border-r border-white/20">
                               100%
                               <br />
                               Acc
                             </th>
-                            <th className="px-2 py-2 text-center text-white font-semibold text-xs">
+                            <th className="px-1 sm:px-2 py-1 sm:py-2 text-center text-white font-semibold text-xs">
                               F1
                             </th>
                           </tr>
@@ -959,53 +959,53 @@ export default function Presentation() {
                                     : "bg-gray-50/90"
                                 }`}
                               >
-                                <td className="px-3 py-2 text-gray-800 text-xs font-semibold border-r border-gray-200">
+                                <td className="px-1 sm:px-3 py-1 sm:py-2 text-gray-800 text-xs font-semibold border-r border-gray-200">
                                   {row.model}
                                 </td>
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs border-r border-gray-200"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs border-r border-gray-200"
                                   dangerouslySetInnerHTML={{
                                     __html: row.acc50,
                                   }}
                                 />
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs border-r border-gray-200"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs border-r border-gray-200"
                                   dangerouslySetInnerHTML={{
                                     __html: row.f1_50,
                                   }}
                                 />
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs border-r border-gray-200"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs border-r border-gray-200"
                                   dangerouslySetInnerHTML={{
                                     __html: row.acc66,
                                   }}
                                 />
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs border-r border-gray-200"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs border-r border-gray-200"
                                   dangerouslySetInnerHTML={{
                                     __html: row.f1_66,
                                   }}
                                 />
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs border-r border-gray-200"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs border-r border-gray-200"
                                   dangerouslySetInnerHTML={{
                                     __html: row.acc75,
                                   }}
                                 />
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs border-r border-gray-200"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs border-r border-gray-200"
                                   dangerouslySetInnerHTML={{
                                     __html: row.f1_75,
                                   }}
                                 />
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs border-r border-gray-200"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs border-r border-gray-200"
                                   dangerouslySetInnerHTML={{
                                     __html: row.acc100,
                                   }}
                                 />
                                 <td
-                                  className="px-2 py-2 text-center text-gray-700 text-xs"
+                                  className="px-1 sm:px-2 py-1 sm:py-2 text-center text-gray-700 text-xs"
                                   dangerouslySetInnerHTML={{
                                     __html: row.f1_100,
                                   }}
@@ -1041,26 +1041,26 @@ export default function Presentation() {
               style={{ animationDelay: "2s" }}
             ></div>
 
-            <div className="slide-content relative z-10 pt-8 pb-24">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="bg-gradient-to-r from-orange-500 to-red-500 p-3 rounded-xl shadow-lg">
-                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                    <span className="text-orange-600 font-bold text-lg">
+            <div className="slide-content relative z-10 pt-2 sm:pt-4 md:pt-8 pb-8 sm:pb-16 md:pb-24">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+                <div className="bg-gradient-to-r from-orange-500 to-red-500 p-2 sm:p-3 rounded-xl shadow-lg">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-orange-600 font-bold text-sm sm:text-lg">
                       📈
                     </span>
                   </div>
                 </div>
-                <h1 className="text-xl md:text-2xl font-bold text-center leading-tight bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-center leading-tight bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                   {slide.title}
                 </h1>
               </div>
 
-              <div className="w-full space-y-4 overflow-visible">
+              <div className="w-full space-y-2 sm:space-y-4 overflow-visible">
                 {/* Main layout: left content and right table */}
-                <div className="grid grid-cols-12 gap-4">
+                <div className="grid grid-cols-12 gap-2 sm:gap-4">
                   {/* Left side - Other analysis content (first 4 items) */}
-                  <div className="col-span-6">
-                    <div className="grid grid-cols-1 gap-3">
+                  <div className="col-span-12 md:col-span-6">
+                    <div className="grid grid-cols-1 gap-2 sm:gap-3">
                       {Array.isArray(slide.content) &&
                         slide.content.slice(0, 4).map((item, index) => {
                           return (
@@ -1086,17 +1086,17 @@ export default function Presentation() {
                   </div>
 
                   {/* Right side - Table and parameter explanations */}
-                  <div className="col-span-6">
+                  <div className="col-span-12 md:col-span-6">
                     {/* DCC-GARCH Results Table */}
-                    <div className="bg-white/85 backdrop-blur-sm rounded-xl p-3 overflow-hidden shadow-xl mb-3">
-                      <h3 className="text-gray-800 font-bold text-sm mb-3 text-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                    <div className="bg-white/85 backdrop-blur-sm rounded-xl p-2 sm:p-3 overflow-hidden shadow-xl mb-2 sm:mb-3">
+                      <h3 className="text-gray-800 font-bold text-xs sm:text-sm mb-2 sm:mb-3 text-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                         DCC-GARCH Results
                       </h3>
                       <div className="overflow-hidden rounded-lg shadow-lg">
                         <table className="w-full text-xs border-collapse">
                           <thead>
                             <tr className="bg-gradient-to-r from-orange-500 to-red-500">
-                              <th className="px-2 py-1 text-left text-white font-semibold text-xs border-r border-white/20">
+                              <th className="px-1 sm:px-2 py-1 text-left text-white font-semibold text-xs border-r border-white/20">
                                 Name
                               </th>
                               <th className="px-1 py-1 text-center text-white font-semibold text-xs border-r border-white/20">
@@ -1181,23 +1181,51 @@ export default function Presentation() {
     const { width, height } = viewportSize;
     let baseScale = 1;
 
+    // Consider both width and height for better responsive scaling
+    const aspectRatio = width / height;
+    const isWideScreen = aspectRatio > 1.5;
+    const isTallScreen = aspectRatio < 0.8;
+
     if (isFullscreen) {
-      // In fullscreen, maximize content size for clarity
-      if (width >= 3840) baseScale = 1.6; // 4K screens - much larger
-      else if (width >= 2560) baseScale = 1.5; // QHD screens - much larger
-      else if (width >= 1920) baseScale = 1.4; // Full HD screens - larger
-      else if (width >= 1366) baseScale = 1.3; // HD screens - larger
-      else if (width >= 1024) baseScale = 1.2; // Tablet landscape - larger
-      else baseScale = 1.1; // Mobile/small screens - larger
+      // In fullscreen, maximize content size for clarity but ensure it fits
+      if (width >= 3840 && height >= 2160)
+        baseScale = 1.4; // 4K screens - larger but not too large
+      else if (width >= 2560 && height >= 1440)
+        baseScale = 1.3; // QHD screens - larger
+      else if (width >= 1920 && height >= 1080)
+        baseScale = 1.2; // Full HD screens - moderate larger
+      else if (width >= 1366 && height >= 768)
+        baseScale = 1.1; // HD screens - slightly larger
+      else if (width >= 1024) baseScale = 1.0; // Tablet landscape - normal
+      else if (width >= 768) baseScale = 0.85; // Tablet portrait - smaller
+      else baseScale = 0.7; // Mobile - much smaller
     } else {
-      // Normal window mode - increase size significantly
-      if (width >= 2560) baseScale = 1.4; // Large screens - much larger
-      else if (width >= 1920) baseScale = 1.3; // Full HD screens - larger
-      else if (width >= 1366) baseScale = 1.2; // HD screens - larger
-      else if (width >= 1024) baseScale = 1.1; // Tablet landscape - larger
-      else if (width >= 768) baseScale = 1.0; // Tablet portrait - normal
-      else baseScale = 0.95; // Mobile - slightly smaller but readable
+      // Normal window mode - more conservative scaling
+      if (width >= 2560 && height >= 1440)
+        baseScale = 1.2; // Large screens - larger
+      else if (width >= 1920 && height >= 1080)
+        baseScale = 1.1; // Full HD screens - slightly larger
+      else if (width >= 1366 && height >= 768)
+        baseScale = 1.0; // HD screens - normal
+      else if (width >= 1024)
+        baseScale = 0.9; // Tablet landscape - slightly smaller
+      else if (width >= 768) baseScale = 0.75; // Tablet portrait - smaller
+      else if (width >= 480)
+        baseScale = 0.65; // Mobile landscape - much smaller
+      else baseScale = 0.55; // Small mobile - very small
     }
+
+    // Additional adjustments for very tall or very wide screens
+    if (isTallScreen && height < 600) {
+      baseScale *= 0.8; // Reduce for very short screens
+    } else if (isWideScreen && height < 800) {
+      baseScale *= 0.9; // Slightly reduce for wide but short screens
+    }
+
+    // Minimum scale to ensure readability
+    baseScale = Math.max(baseScale, 0.4);
+    // Maximum scale to prevent oversized content
+    baseScale = Math.min(baseScale, 1.5);
 
     return baseScale;
   };
