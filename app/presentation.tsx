@@ -744,39 +744,39 @@ export default function Presentation() {
             ></div>
 
             <div className="slide-content relative z-10">
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-xl shadow-lg">
-                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                    <span className="text-purple-600 font-bold text-lg">
+              <div className="flex items-center justify-center gap-6 mb-6">
+                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-xl shadow-lg">
+                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-purple-600 font-bold text-xl">
                       🧠
                     </span>
                   </div>
                 </div>
-                <h1 className="slide-title text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   {slide.title}
                 </h1>
               </div>
 
-              <div className="w-full px-2">
-                {/* Main content layout: simple responsive grid */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start max-w-6xl w-full mx-auto">
+              <div className="w-full px-4">
+                {/* Main content layout: expanded responsive grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start w-full mx-auto">
                   {/* Left side - First 3 signal definitions */}
-                  <div className="md:col-span-3 col-span-1 mb-4 md:mb-0">
-                    <div className="space-y-3">
+                  <div className="md:col-span-3 col-span-1 mb-6 md:mb-0">
+                    <div className="space-y-4">
                       {Array.isArray(slide.content) &&
                         slide.content.slice(0, 3).map((item, index) => {
                           const [signalName, description] = item.split(": ");
                           return (
                             <div
                               key={index}
-                              className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
+                              className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
                             >
                               <h3
-                                className="text-sm font-bold text-gray-800 mb-2"
+                                className="text-base font-bold text-gray-800 mb-3"
                                 dangerouslySetInnerHTML={{ __html: signalName }}
                               />
                               <p
-                                className="text-gray-700 leading-relaxed text-xs"
+                                className="text-gray-700 leading-relaxed text-sm"
                                 dangerouslySetInnerHTML={{
                                   __html: description,
                                 }}
@@ -788,16 +788,16 @@ export default function Presentation() {
                   </div>
 
                   {/* Center - Table Image */}
-                  <div className="md:col-span-6 col-span-1 flex justify-center mb-4 md:mb-0">
+                  <div className="md:col-span-6 col-span-1 flex justify-center mb-6 md:mb-0">
                     {slide.image && (
-                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-3xl">
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-xl hover:shadow-2xl transition-all duration-300 w-full">
                         <img
                           src={slide.image}
                           alt="Signals Table"
-                          width={600}
-                          height={450}
-                          className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[300px] sm:min-h-[400px] md:min-h-[500px]"
-                          style={{ maxHeight: "60vh" }}
+                          width={800}
+                          height={600}
+                          className="w-full h-auto rounded-lg shadow-lg object-contain min-h-[400px] sm:min-h-[500px] md:min-h-[600px]"
+                          style={{ maxHeight: "70vh" }}
                           onError={(e) => {
                             console.error("Failed to load image:", slide.image);
                             e.currentTarget.style.border = "2px solid red";
@@ -815,21 +815,21 @@ export default function Presentation() {
 
                   {/* Right side - Last 3 signal definitions */}
                   <div className="md:col-span-3 col-span-1">
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {Array.isArray(slide.content) &&
                         slide.content.slice(3, 6).map((item, index) => {
                           const [signalName, description] = item.split(": ");
                           return (
                             <div
                               key={index + 3}
-                              className="bg-white/80 backdrop-blur-sm rounded-lg p-3 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
+                              className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border-l-4 border-gradient-to-b from-purple-400 to-pink-400 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/90"
                             >
                               <h3
-                                className="text-sm font-bold text-gray-800 mb-2"
+                                className="text-base font-bold text-gray-800 mb-3"
                                 dangerouslySetInnerHTML={{ __html: signalName }}
                               />
                               <p
-                                className="text-gray-700 leading-relaxed text-xs"
+                                className="text-gray-700 leading-relaxed text-sm"
                                 dangerouslySetInnerHTML={{
                                   __html: description,
                                 }}
