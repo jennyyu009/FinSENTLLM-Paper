@@ -1209,6 +1209,7 @@ export default function Presentation() {
       className={`relative w-full min-h-screen overflow-hidden flex items-center justify-center ${
         isFullscreen ? "fullscreen-mode" : ""
       }`}
+      style={{ height: "100vh", maxHeight: "100vh" }}
     >
       <div className="w-full h-full flex items-center justify-center">
         <div
